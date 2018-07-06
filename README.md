@@ -15,6 +15,7 @@ Logs data analysis report of a news database usingLogs data analysis report of a
     -run the command vagrant ssh
 
 5- create views in postgresql
+        
         -"create or replace view dataerror as "
                 "select substring(cast(log.time as text), 0, 11) as date, "
                 "count(log.status) as error "
