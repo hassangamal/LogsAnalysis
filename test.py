@@ -1,4 +1,4 @@
-# pick random word
+#!/usr/bin/env python3
 
 import psycopg2
 from pprint import pprint
