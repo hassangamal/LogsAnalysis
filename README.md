@@ -7,6 +7,8 @@ Logs data analysis report of a news database using postgresql and Python.
 
 2-output.txt
 
+3- download newdata.sql file from "udacity"
+
 #How to run the project?
 
 1- Open IDLE (Python 3.3) .
