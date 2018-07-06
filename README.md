@@ -34,6 +34,7 @@ Logs data analysis report of a news database usingLogs data analysis report of a
                 "inner join dataerror on alldata.date=dataerror.date "
              
 #Requirements:
+
 1-database.py
 
 2-output.txt
