@@ -10,7 +10,8 @@ def question_one():
     cur.execute("SELECT title, "
                 "count(*) AS num_view "
                 "from  articles "
-                "inner join log on log.path = concat('/article/', articles.slug) "
+                "inner join log on "
+                "log.path = concat('/article/', articles.slug) "
                 "where log.status ='200 OK'"
                 "group by articles.title "
                 "order by num_view desc "
@@ -32,8 +33,10 @@ def question_two():
     cur.execute("select authors.name , "
                 "count(*) as num_view "
                 "from  authors "
-                " inner join articles on authors.id=articles.author "
-                "inner join log on log.path = concat('/article/', articles.slug) "
+                "inner join articles "
+                "on authors.id=articles.author "
+                "inner join log on "
+                "log.path = concat('/article/', articles.slug) "
                 "where log.status ='200 OK' "
                 "group by authors.name "
                 "order by num_view desc "
@@ -64,7 +67,8 @@ def question_third():
                 "group by date "
                 )
     cur.execute("create or replace view  alldata as "
-                "select substring(cast(log.time as text), 0, 11) as date , count(log.status) as all from log "
+                "select substring(cast(log.time as text), 0, 11) as date ,"
+                "count(log.status) as all from log "
                 "group by date "
                 )
     cur.execute("create or replace view final_query as "
@@ -82,7 +86,7 @@ def question_third():
     rows = cur.fetchall()
     print("3-On which days did more than 1% of requests lead to errors?")
     for row in rows:
-        print(row[0], ' -- ',round(row[1], 2), '%  views')
+        print(row[0], ' -- ', round(row[1], 2), '%  views')
     conn.commit()
     cur.close()
     conn.close()
