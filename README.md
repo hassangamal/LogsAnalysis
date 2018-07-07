@@ -20,7 +20,7 @@ Logs data analysis report of a news database usingLogs data analysis report of a
                 "select substring(cast(log.time as text), 0, 11) as date, "
                 "count(log.status) as error "
                 "from log "
-                "where log.status like '%404%' "
+                "where log.status = '404 NOT FOUND' "
                 "group by date "
                 
         -"create or replace view  alldata as "
